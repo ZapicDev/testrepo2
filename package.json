@@ -1,0 +1,47 @@
+{
+  "name": "electron-updater-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "publish": "build --win -p always"
+  },
+  "build": {
+    "appId": "com.electron.app",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "ZapicDev",
+        "repo": "https://github.com/ZapicDev/testrepo.git"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "verifyUpdateCodeSignature": false
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "identity": "Mac Developer: username (XXXXXXXX)",
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.2"
+  },
+  "dependencies": {
+    "electron-updater": "^4.3.5"
+  }
+}
